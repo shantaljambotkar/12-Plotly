@@ -95,5 +95,32 @@ function buildCharts(sample) {
 
     // 10. Use Plotly to plot the data with the layout. 
     Plotly.newPlot("bar", barData, barLayout);
+
+    // 1. Create the trace for the bubble chart.
+    var bubbleData = [{
+      x: otu_ids_a,
+      y: sample_values_a,
+      text: otu_labels_a,
+      mode: 'markers',
+      marker:{
+        color:otu_ids_a,
+        size:sample_values_a,
+        colorscale: "Jet" 
+      },
+    }
+   
+    ];
+
+    // 2. Create the layout for the bubble chart.
+    var bubbleLayout = {
+      title: 'Bubble Cultures Per Sample',
+      hovermode:'closest'
+    };
+
+    // 3. Use Plotly to plot the data with the layout.
+    Plotly.newPlot('bubble', bubbleData, bubbleLayout); 
   });
+
+
 }
+
